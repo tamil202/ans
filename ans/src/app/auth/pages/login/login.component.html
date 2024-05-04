@@ -1,0 +1,72 @@
+<div class="container mx-auto font-mono">
+    <div class="flex justify-center items-center min-h-screen">
+        <div class="relative">
+            <h1 class="text-center text-3xl font-bold mb-2">Login</h1>
+            <span class="flex justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="w-48 h-48">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                </svg>
+            </span>
+           <div>
+            <form class="w-full max-w-sm" [formGroup]="formData">
+                <div class="text-center">
+                    @if(nextvalue === 0 ){
+                    <button (click)="next()"
+                        class="flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded"
+                        type="button">
+                        Next
+                    </button>
+                    }
+                </div>
+                @for (item of loginvalue; track $index; ) {
+                @if (item.id === nextvalue ) {
+                <div class="flex items-center border-b border-teal-500 py-2">
+                    <input formControlName={{item.name}}
+                        class="animate-fade-left appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
+                        type={{item.type}} name={{item.name}} placeholder={{item.placeholder}}>
+                   
+                    @if (item.name != 'password') {
+                        <button (click)="next()" [disabled]="this.formData.get(item.name)?.invalid"
+                            class="flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded"
+                            type="button">
+                            Next
+                        </button>
+                    }
+            
+                    <button (click)="cancel()"
+                        class="flex-shrink-0 border-transparent border-4 text-teal-500 hover:text-teal-800 text-sm py-1 px-2 rounded"
+                        type="button">
+                        Cancel
+                    </button>
+                </div>
+                }
+                }
+                <span class=" text-[14px] flex justify-end mt-2">forget password?<span (click)="forget()" class="text-blue-700 underline cursor-pointer ">click</span></span>
+                <div class="text-center mt-3">
+                    @if(nextvalue === this.loginvalue.length ){
+                    <button (click)="submit()"
+                        class="flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded"
+                        type="button">
+                        submit
+                    </button>
+                    }
+                </div>
+                <div class="text-center mt-3">
+                    @if(nextvalue === 4){
+                    <button (click)="submit()"
+                        class="flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded"
+                        type="button">
+                        submit
+                    </button>
+                    }
+                </div>
+               
+            </form>
+           </div>
+            <h1 class="text-[14px] text-center mt-10">No Account?<span (click)="navigate()"
+                    class="text-blue-900 cursor-pointer underline">clickhere</span></h1>
+        </div>
+    </div>
+</div>

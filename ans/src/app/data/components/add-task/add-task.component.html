@@ -1,0 +1,18 @@
+<div class="pt-2 relative mx-auto text-gray-600 items-center ">
+   <form class="flex justify-between  mb-2">
+    <input [(ngModel)]="task"  class="border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none" type="text"
+        name="add" placeholder="Add Task">
+        <input [(ngModel)]="taskdes"
+            class="border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none" type="text"
+            name="add" placeholder="Add Descrption">
+   </form>
+    <div class="flex justify-start">
+        <button [disabled]="!task" (click)="submit()" class="bg-blue-700 text-white rounded-md  py-1 px-3 gap-x-3  items-center ">
+            <span class="hidden md:block">Add</span>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                class="w-6 h-6 md:hidden">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+            </svg>
+        </button>
+    </div>
+</div>

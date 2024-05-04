@@ -1,0 +1,87 @@
+<header
+    class="{{sun ?'animate-fade-right text-black bg-gray-200':'animate-fade-left text-gray-500 bg-white'}} fixed inset-x-0 top-0 z-30 mx-auto w-full max-w-screen-md border border-gray-100 bg-white/80 py-3 shadow backdrop-blur-lg md:top-6 md:rounded-3xl lg:max-w-screen-lg">
+   @for (item of data; track $index) {
+    <div class="px-4">
+        <div class="p-2">
+            <div class="flex items-center justify-between" >
+                <label for="image">
+                    <input type="file" id="image"  (change)="selectfile($event)" class="hidden">
+                    <img [src]="imagelinkurl"
+                        class="w-28 h-28" alt="">
+                </label>
+                    <h1 class="font-thin text-[14px]">The Profile change and Show in Home Page</h1>
+                   <span></span>
+                </div>
+            <hr class="mt-2">
+            <div class=" mt-2 flex justify-between">
+                <span class="uppercase font-thin">username</span>
+                <span class="uppercase font-thin ">{{item.username}}</span>
+                <span class="uppercase font-bold text-blue-900 cursor-pointer" for="edit" (click)="edit()">Edit</span>
+
+            </div>
+        </div>
+    </div>
+   }
+@if(isShow){
+<div id="edit">
+    <app-updata-deatils [sun]="sun" ></app-updata-deatils>
+</div>
+}
+</header>
+<main
+    class="{{sun ?'animate-fade-right text-white bg-gray-700':'animate-fade-left text-gray-800 bg-white'}} flex items-center justify-center inset-x-0 min-h-screen mx-auto w-full border border-gray-100 py-3 shadow-2xl backdrop-blur-lg md:top-6 md:rounded-3xl lg:max-w-screen-lgl">
+   @for (item of data; track $index) {
+    <div class="px-4 md:w-[60%]">
+        <div class="p-2 space-y-2">
+            <div class="flex items-center justify-between">
+                <h1 class="uppercase font-thin">Email</h1>
+                <span class="font-thin">{{item.email}}</span>
+                
+            </div>
+            @for (item of details2; track $index) {
+                <div class="flex items-center justify-between">
+                    <h1 class="uppercase font-thin">Firstname</h1>
+                    <span class="font-thin">{{item.firstname}}</span>
+                </div>
+                <div class="flex items-center justify-between">
+                    <h1 class="uppercase font-thin">lastname</h1>
+                    <span class="font-thin">{{item.lastname}}</span>
+                </div>
+                <div class="flex items-center justify-between">
+                    <h1 class="uppercase font-thin">age</h1>
+                    <span class="font-thin">{{item.age}}</span>
+                </div>
+                <div class="flex items-center justify-between">
+                    <h1 class="uppercase font-thin">mobile</h1>
+                    <span class="font-thin">{{item.mobile}}</span>
+                </div>
+                <div class="flex items-center justify-between">
+                    <h1 class="uppercase font-thin">gender</h1>
+                    <span class="font-thin">{{item.gender}}</span>
+                </div>
+                <div class="flex items-center justify-between">
+                    <h1 class="uppercase font-thin">profession</h1>
+                    <span class="font-thin">{{item.profession}}</span>
+                </div>
+                <div class="flex items-center justify-between">
+                    <h1 class="uppercase font-thin">address</h1>
+                    <span class="font-thin">{{item.address}}</span>
+                </div>
+                <div class="flex items-center justify-between">
+                    <h1 class="uppercase font-thin">country</h1>
+                    <span class="font-thin">{{item.country}}</span>
+                </div>
+                <div class="flex items-center justify-between">
+                    <h1 class="uppercase font-thin">pin</h1>
+                    <span class="font-thin">{{item.pin}}</span>
+                </div>
+            }
+            <hr class="mt-2">
+           
+        </div>
+    </div>
+   }
+</main>
+
+
+

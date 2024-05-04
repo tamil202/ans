@@ -1,0 +1,61 @@
+<!-- header navbar -->
+<div class=" w-full h-full" >
+    <header
+        class="{{sun ?'animate-fade-right text-white bg-gray-700':'animate-fade-left text-black bg-white'}} fixed inset-x-0 top-0 z-30 mx-auto w-full max-w-screen-md border border-gray-100 bg-white/80 py-3 shadow backdrop-blur-lg md:top-6 md:rounded-3xl lg:max-w-screen-lg">
+        <div class="px-4">
+            <div class="flex items-center justify-between">
+                <div class="flex shrink-0  z-30" (click)="isClick()">
+                    <a aria-current="page" class="flex items-center">
+                        <img class="h-7 w-auto" src="https://icon-library.com/images/thunder-icon/thunder-icon-13.jpg"
+                            alt="">
+                    </a>
+                </div>
+                <div class="hidden md:flex md:items-center md:justify-center md:gap-5">
+                    <h1>Focus To Do</h1>
+                </div>
+                <div >
+                    @if (moon) {
+                    <div (click)="moontosun()">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-6 h-6 cursor-pointer">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
+                        </svg>
+                    </div>
+                    }
+                    @if (sun) {
+                    <div (click)="suntmoon()">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-6 h-6 cursor-pointer">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
+                        </svg>
+                    </div>
+                    }
+    
+    
+                </div>
+                <div class="flex items-center justify-end gap-3" (click)="isClick()">
+                    <a
+                        class=" items-center justify-center rounded-xl bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 transition-all duration-150 hover:bg-gray-50 sm:inline-flex">
+                        <img [src]="imageUrl" alt="" class="object-cover w-7 h-7 rounded-full">
+                    </a>
+                </div>
+            </div>
+        </div>
+    
+    </header>
+    <div class="z-50 relative {{sun ?'animate-fade-right text-white bg-gray-700':'animate-fade-left text-black bg-white'}}">
+        @if (isShow) {
+        <div class="z-50 top-20 w-full absolute md:w-full md:top-28 md:left-60">
+            <app-profile [sun]="sun"></app-profile>
+        </div>
+        }
+    </div>
+    <div class="relative {{sun ?'animate-fade-right text-white bg-gray-700':'animate-fade-left text-black bg-white'}}">
+        <div class="absolute top-20 flex justify-center w-full">
+            <app-table-show [sun]="sun"></app-table-show>
+        </div>
+    </div>
+
+</div>
